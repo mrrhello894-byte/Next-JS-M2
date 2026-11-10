@@ -2,8 +2,8 @@
 
 export default function TeamPage() {
   return (
-    <div className="bg-blue-500 text-3xl">
-       Welcome To Team
+    <div className="bg-green-500 text-3xl text-white">
+       Welcome To  Our Team
     </div>
   )
 }

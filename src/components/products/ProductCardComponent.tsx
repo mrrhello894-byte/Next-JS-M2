@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 export interface ProductResponse {
  id?: number;
@@ -18,19 +19,19 @@ export interface ProductResponse {
  price: number
 }
 
-const ProductCardComponent = ({images,title, description, price}:ProductResponse) => {
+const ProductCardComponent = ({ id, images, title, description, price }: ProductResponse) => {
 
   const PLACEHOLDER = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSHQ2QS9U-YKh9fPiHsVWMcXMFKbZXlPQ_BpGCWYDTbjkaaakSgu-PZIJU&s=10"
   const imageSrc = images && images.length > 0 && images[0] ? images[0] : PLACEHOLDER;
 
   return (
-    <a
-      href={''}
+    <Link
+      href={id ? `/products/${id}` : "#"}
       className={cn(
         "block max-w-md transition-opacity hover:opacity-80"
       )}
     >
-      <Card className="h-full overflow-hidden p-0">
+      <Card className="h-full w-full overflow-hidden p-0">
         <CardHeader className="relative block p-0">
           <AspectRatio ratio={1.268115942} className="overflow-hidden">
             <Image
@@ -61,7 +62,7 @@ const ProductCardComponent = ({images,title, description, price}:ProductResponse
           </div>
         </CardContent>
       </Card>
-    </a>
+    </Link>
   );
 };
 
